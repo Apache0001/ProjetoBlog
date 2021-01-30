@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 {% load humanize%}
+
+<!-- Titulo -->
+{%block 'titulo' %}
+    Busca
+{% endblock %}
+
 {% block 'conteudo' %}
  <!-- CONTENT -->
- <div class="mt-4 d-flex flex-row flex-wrap">
+ <div class="card-columns mt-4">
     {%for post in posts%}
     <!-- FOR LOOP -->
-    <div class="card m-5">
+    <div class="card">
 
         <a href="{% url 'post_detalhes' post.id %}">
             {%if post.imagem_post %}
