@@ -28,6 +28,22 @@ class PostIndex(ListView):
 
 class PostBusca(PostIndex):
     template_name = 'posts/post_busca.html'
+    
+    def get_queryset(self):
+        qs = super().get_queryset()
+        print(self.request.GET.get('termo'))
+
+        if not termo:
+            return qs
+        qs = qs.filter(
+            Q(titulo_posts__icontains=termo)
+            Q(autor_posts__ixact=termo)
+            Q(conteudo_posts__icontains=termo)
+            Q(excerto_posts__icontains=termo)
+            Q(titulo_posts__icontains=termo)
+            Q(titulo_posts__icontains=termo)
+        )
+        return qs
 
 class PostCategoria(PostIndex):
     template_name = 'posts/post_categoria.html'
