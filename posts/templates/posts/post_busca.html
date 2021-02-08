@@ -8,10 +8,10 @@
 
 {% block 'conteudo' %}
  <!-- CONTENT -->
- <div class="card-columns mt-4">
+ <div class="mt-4 d-flex flex-row flex-wrap">
     {%for post in posts%}
     <!-- FOR LOOP -->
-    <div class="card">
+    <div class="card m-5">
 
         <a href="{% url 'post_detalhes' post.id %}">
             {%if post.imagem_post %}
